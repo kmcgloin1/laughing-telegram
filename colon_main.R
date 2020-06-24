@@ -1,14 +1,14 @@
-# ----- STA 4250: Extra Project -----
-
 library(survival)
 library(survminer)
 library(ggpubr)
 
-
-setwd("C:/Users/Kaitlyn/Desktop/SPRING 2020/STA 4250/Extra Project")
-
+# import the data
 colonMod <- read.csv("colonModified.csv",header=TRUE)
 
+# make sure the data looks correct
+head(colonMod)
+
+# get summary statistics of the data
 summary(colonMod)
 
 # ----- Prelimiary Analysis -----
@@ -216,8 +216,3 @@ fit15 <- coxph(Surv(time, status) ~ rx + adhere + extent + surg + node4,
 AIC(fit15) # 7938.981
 test.fit15 <- cox.zph(fit15)
 test.fit15 # does not satisfy proportional hazards assumption
-
-
-
-
-
